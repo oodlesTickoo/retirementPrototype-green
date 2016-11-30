@@ -251,9 +251,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         var assetsDiv = document.getElementById("other-assets-div");
         assetsDiv.classList.toggle("colorChange");
         if (!$scope.spouseOption) {
-            assetsDiv.style.backgroundColor = "#fbefcc";
+            assetsDiv.style.backgroundColor = "#dbebc9";
         } else {
-            assetsDiv.style.backgroundColor = "#f2f5f6";
+            assetsDiv.style.backgroundColor = "#f3f5f4";
         }
     });
 

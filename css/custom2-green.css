@@ -83,7 +83,7 @@ body {
 }
 
 .page-content .spouse-account-details {
-    background-color: #fbefcc;
+    background-color: #dbebc9;
 }
 
 .page-content .other-assets {
@@ -324,13 +324,13 @@ body {
 div .colorChange .noUi-horizontal .noUi-handle {
     width: 28px;
     height: 28px;
-    background-color: #003946;
+    background-color: #61746b;
     border: 3px solid #f2f5f6;
-    box-shadow: 0 0 0 1pt #003946;
+    box-shadow: 0 0 0 1pt #61746b;
 }
 
 div .colorChange .icon-container i {
-    background-color: #003946;
+    background-color: #61746b;
 }
 
 .noUi-handle {
