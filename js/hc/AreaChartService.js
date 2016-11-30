@@ -90,7 +90,7 @@ app.service('AreaChartService', function() {
                 name: 'Pension Member 2',
                 data: penArr2
             }, {
-                color: '#2443af',
+                color: '#6ff229',
                 name: 'Life Expectancy Member 1',
                 type: 'line',
                 dashStyle: 'shortdash',
@@ -107,7 +107,7 @@ app.service('AreaChartService', function() {
                     }
                 }
             }, {
-                color: '#12841f',
+                color: '#dbed1e',
                 name: 'Life Expectancy Member 2',
                 type: 'line',
                 dashStyle: 'shortdash',
@@ -124,7 +124,7 @@ app.service('AreaChartService', function() {
                     }
                 }
             }, {
-                color: 'red',
+                color: '#042556',
                 name: 'Target Income',
                 type: 'line',
                 marker: {

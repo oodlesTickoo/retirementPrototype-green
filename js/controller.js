@@ -41,12 +41,12 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $(".form-1").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
 
         if ($scope.isMenuDrop1) {
-            d[0].style.backgroundColor = "#91B6BE";
+            d[0].style.backgroundColor = "#81ba34";
             document.getElementsByClassName('caret1-down')[0].style.display = 'none';
             document.getElementsByClassName('caret1-right')[0].style.display = 'block';
         } else {
             // console.log("super");
-            d[0].style.backgroundColor = "#dbe3e6";
+            d[0].style.backgroundColor = "#c8e0ac";
             document.getElementsByClassName('caret1-down')[0].style.display = 'block';
             document.getElementsByClassName('caret1-right')[0].style.display = 'none';
         }
