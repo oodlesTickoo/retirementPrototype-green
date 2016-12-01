@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
 </head>
 
-<body print-section ng-cloak>
-    <div class="container" style="display: block;" ng-controller="TTRController">
+<body print-section ng-cloak ng-controller="TTRController">
+    <div class="container" style="display: none;" >
         <div class="row page-heading ">
             <div class="col-xs-12 " style="background: radial-gradient(#8cc63e,#6d9b2e);">
                 <div class=" title-bar ">
@@ -1091,9 +1091,256 @@
             </div>
         </div>
     </div>
-    <div class="feedback " data-toggle="modal" data-target="#myModal1" >
+    <div class="feedback " style=" display: none; " data-toggle="modal" data-target="#myModal1" >
         <i class="fa fa-comments faa-tada animated" aria-hidden="true"></i>
         <label>Feedback</label>
+    </div>
+    <div class="container print-container" style=" display: block; " >
+        <div class="row button-preview">
+            <div class="col-xs-12">
+                <div class="button-row">
+                    <img src="images/logo.png">
+                    <button class="btn btn-primary ">Print</button>
+                    <button class="btn btn-primary ">Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="row print-preview">
+            <div class="col-xs-12">
+                <div class="row page-1">
+                    <div class="page-head">
+                        <img src="images/logo.png" width="180px" height="50px" alt="Financial Choice logo">
+                        <h2>Retirement adequacy calculator</h2>
+                        <div class="date">December 1, 2016</div>
+                    </div>
+                    <div class="page-content">
+                        <div class="content-row">
+                            <div class="content-section">
+                                <h3><div class="fa fa-usd icon"></div>Tell us about yourself:</h3>
+                                <div class="display-table print-width-100">
+                                    <div class="display-table-cell print-width-48">
+                                        <div class="tell-lines">
+                                        First Name: <strong>{{ personalDetails.firstName }}</strong>
+                                        </div>
+                                        <div class="tell-lines">
+                                        Last Name: <strong>{{ personalDetails.lastName }}</strong>
+                                        </div>
+                                        <div class="tell-lines">
+                                        Gender: <strong></strong>
+                                        </div>
+                                        <div class="tell-lines">
+                                        Date Of Birth: <strong></strong>
+                                        </div>
+                                        <div class="tell-lines">
+                                        Email Address: <strong></strong>
+                                        </div>                                       
+                                    </div>
+                                    <div class="display-table-cell print-width-4"></div>
+                                    <div class="display-table-cell print-width-48">
+                                        <div class="tell-lines">
+                                        Mobile Number: <strong></strong>
+                                        </div>
+                                        <div class="tell-lines">
+                                        Postal Code: <strong></strong>
+                                        </div>
+                                        <div class="tell-lines">
+                                        Do You Have A Spouse: <strong></strong>
+                                        </div>
+                                        <div class="tell-lines">
+                                        Do You Own A House: <strong></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-row">
+                            <div class="content-section">
+                                <h3><div class="fa fa-usd icon"></div>Your account details:</h3>
+                                <div class="display-table print-width-100">
+                                    <div class="display-table-cell print-width-48">
+                                        <div class="account-lines">
+                                            Annual Salary: <strong>{{ personalDetails.firstName }}</strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Super Balance: <strong>{{ personalDetails.lastName }}</strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Salary Sacrifice: <strong></strong>
+                                        </div>
+                                        <div class="account-lines margin-top-10">
+                                            <strong>Pension related details :</strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Retirement Age: <strong></strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Pension Start Age: <strong></strong>
+                                        </div>   
+                                        <div class="account-lines">
+                                            Pension Drawdown Value: <strong></strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Pension Drawdown Base: <strong></strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Target Income: <strong></strong>
+                                        </div>                                       
+                                    </div>
+                                    <div class="display-table-cell print-width-4"></div>
+                                    <div class="display-table-cell print-width-48">                             
+                                        <div class="account-lines">
+                                            <strong>Assumptions :</strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Insurance Premium per year: <strong></strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Investment Return: <strong></strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Variable Fee: <strong></strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Fixed Fee: <strong></strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Employer Contribution Level: <strong></strong>
+                                        </div>   
+                                        <div class="account-lines">
+                                            Inflation: <strong></strong>
+                                        </div>
+                                        <div class="account-lines">
+                                            Wage Increase: <strong></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-row">
+                            <div class="content-section">
+                                <h3><div class="fa fa-usd icon"></div>Your spouse's account details:</h3>
+                                <div class="display-table print-width-100">
+                                    <div class="display-table-cell print-width-48">
+                                        <div class="accountSpouse-lines">
+                                            Annual Salary: <strong>{{ personalDetails.firstName }}</strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Super Balance: <strong>{{ personalDetails.lastName }}</strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Salary Sacrifice: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines margin-top-10">
+                                            <strong>Pension related details :</strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Retirement Age: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Pension Start Age: <strong></strong>
+                                        </div>   
+                                        <div class="accountSpouse-lines">
+                                            Pension Drawdown Value: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Pension Drawdown Base: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Target Income: <strong></strong>
+                                        </div>                                       
+                                    </div>
+                                    <div class="display-table-cell print-width-4"></div>
+                                    <div class="display-table-cell print-width-48">                             
+                                        <div class="accountSpouse-lines">
+                                            <strong>Assumptions :</strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Insurance Premium per year: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Investment Return: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Variable Fee: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Fixed Fee: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Employer Contribution Level: <strong></strong>
+                                        </div>   
+                                        <div class="accountSpouse-lines">
+                                            Inflation: <strong></strong>
+                                        </div>
+                                        <div class="accountSpouse-lines">
+                                            Wage Increase: <strong></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-row">
+                            <div class="content-section">
+                                <h3><div class="fa fa-usd icon"></div>Your account details:</h3>
+                                <div class="display-table print-width-100">
+                                    <div class="display-table-cell print-width-48">
+                                        <div class="otherAssets-lines">
+                                            <strong>Assets :</strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Home Contents: <strong></strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Vehicle Cost: <strong></strong>
+                                        </div>                                        
+                                        <div class="otherAssets-lines">
+                                            Investment Property: <strong></strong>
+                                        </div>
+                                        <div class="otherAssets-lines margin-top-10">
+                                            <strong>Income :</strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Net Rental Income: <strong></strong>
+                                        </div>   
+                                        <div class="otherAssets-lines">
+                                            Other Income: <strong></strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Pension Income: <strong></strong>
+                                        </div>                                     
+                                    </div>
+                                    <div class="display-table-cell print-width-4"></div>
+                                    <div class="display-table-cell print-width-48">                             
+                                        <div class="otherAssets-lines">
+                                            <strong>Investments :</strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Bank Investment: <strong></strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Listed Investment: <strong></strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Margin Loans: <strong></strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Allocated Pension: <strong></strong>
+                                        </div>
+                                        <div class="otherAssets-lines">
+                                            Other Investment: <strong></strong>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row page-2">
+                    <div class="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
     <script src="js/angular.min.js" type="text/javascript"></script>
