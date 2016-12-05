@@ -433,7 +433,8 @@
 }
 
 .print-container .page-1,
-.print-container .page-2 {
+.print-container .page-2,
+.print-container .page-3 {
     margin-top: 20px !important;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     position: relative;
@@ -497,22 +498,24 @@
     z-index: 50;
     border-bottom: none;
     background: #565656;
+    display: none;
 }
 
 .print-container .print-preview {
     background: #f1f1f1;
     margin: 0;
-    padding: 79px 30px 30px;
+    padding: 0px 30px 30px;
 }
 
 .print-container .page-1,
-.print-container .page-2 {
+.print-container .page-2,
+.print-container .page-3 {
     margin-top: 20px !important;
     box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.5);
     position: relative;
     margin: 0 auto;
-    width: 612pt;
-    height: 748pt;
+    width: 595pt;
+    height: 842pt;
     background-color: #fff;
     padding: 30pt;
 }
@@ -548,7 +551,7 @@
 
 /*********page-1**********/
 
-.print-container .page-1 .page-head {
+.print-container .page-head {
     border-bottom: 1pt solid #eaab00;
     padding-bottom: 5pt;
     position: relative;
@@ -571,14 +574,14 @@
     background-color: #e5e0e0;
 }
 
-.print-container .page-1 .page-head img {
+.print-container .page-head img {
     display: inline-block;
     position: absolute;
     left: 0;
     top: 0;
 }
 
-.print-container .page-1 .page-head h2 {
+.print-container .page-head h2 {
     font-size: 16pt;
     line-height: 18pt;
     display: inline-block;
@@ -590,7 +593,7 @@
     text-align: left;
 }
 
-.print-container .page-1 .page-head div {
+.print-container .page-head div {
     font-size: 10pt;
     display: inline-block;
     text-align: right;
@@ -599,19 +602,19 @@
     top: 14pt;
 }
 
-.print-container .page-1 .page-content .content-row {
-    margin-top: 10pt;
+.print-container .page-content .content-row {
+    margin-top: 50pt;
     width: 100%;
 }
 
-.print-container .page-1 .page-content .content-row .content-section {
+.print-container .page-content .content-row .content-section {
     position: relative;
     padding-top: 0pt;
     padding-bottom: 0pt;
     margin-bottom: 0pt;
 }
 
-.print-container .page-1 .page-content .content-row .content-section h3 {
+.print-container .page-content .content-row .content-section h3 {
     font-size: 11pt;
     font-weight: 200;
     padding-bottom: 1pt;
@@ -622,8 +625,8 @@
     color: #424242;
 }
 
-.print-container .page-1 .page-content .content-row .content-section h3 .fa{
-        display: inline-block;
+.print-container .page-content .content-row .content-section h3 .fa {
+    display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
@@ -631,25 +634,90 @@
     padding-right: 5pt;
 }
 
-.print-width-100{
+.print-width-100 {
     width: 100%;
 }
 
-.print-width-48{
+.print-width-48 {
     width: 48%;
 }
 
-.print-width-4{
+.print-width-4 {
     width: 4%;
 }
 
-.margin-top-10{
+.margin-top-10 {
     margin-top: 10pt;
 }
-.print-container .page-1 .page-content .content-row .content-section .display-table-cell .tell-lines,
-.print-container .page-1 .page-content .content-row .content-section .display-table-cell .account-lines,
-.print-container .page-1 .page-content .content-row .content-section .display-table-cell .accountSpouse-lines,
-.print-container .page-1 .page-content .content-row .content-section .display-table-cell .otherAssets-lines{
-    font-size: 11pt;
-    line-height: 15pt;
+
+.print-container .goal-perc {
+    font-size: 25pt;
+    color: #003946;
+    font-weight: 700;
+    text-align: center;
+}
+
+.print-container .goal-percLine {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.print-container .goal-desc-almost,
+.print-container .goal-desc-shortfall,
+.print-container .goal-desc-surplus {
+    text-align: center;
+}
+
+.print-container .goal-lines {
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-top: 5pt;
+}
+
+.print-container .goal-values {
+    font-size: 20pt;
+    color: #424242;
+}
+
+.print-container .goal-m-values {
+    color: #003946;
+    font-size: 25pt;
+}
+
+.print-container .yellow-line {
+    border-bottom: 1pt solid #93C023;
+}
+
+.print-container .calc-summary {
+    background-color: #e0f9a2;
+}
+
+#containerImage,
+#containerImageA,
+#containerImageB {
+    width: 350pt;
+    height: 250pt;
+    padding-top: 20pt;
+    padding-bottom: 20pt;
+}
+
+.print-container ol {
+    padding-left: 11pt;
+}
+
+.print-container li {
+    padding-left: 10pt;
+    padding-bottom: 5pt;
+}
+
+@media print {
+    .print-container .page-1 .page-head,
+    .print-container .page-2 .page-head,
+    .print-container .page-3 .page-head {
+        margin-top: 60pt;
+        background-color: #e5e0e0;
+    }
+    .print-container .calc-summary {
+        background-color: #e0f9a2;
+    }
 }
