@@ -18,7 +18,7 @@
 </head>
 
 <body ng-cloak ng-controller="TTRController">
-    <div print-remove class="container" style="display: none;" >
+    <div print-remove class="container" style="display: block;" >
         <div class="row page-heading ">
             <div class="col-xs-12 " style="background: #565656;">    
                 <img src="images/logo.png" class="img-responsive" alt="">               
@@ -740,24 +740,24 @@
                 <div class="row result-summary">
                     <div class="col1 col-xs-12 col-sm-4 col-md-4 col-lg-4" >
                         <div class="col1-d1 img-responsive">
-                            <div>0%</div>
+                            <div>{{resultPerc.perc}} %</div>
                         </div>
                         <div class="col1-d2">of your goal has been met</div>
                     </div>
                     <div class="col2 col-xs-12 col-sm-4 col-md-4 col-lg-4" >
                         <div>Your retirement savings goal:</div>
-                        <div class="col2-d1">$917,461</div>
+                        <div class="col2-d1">{{resultPerc.target|currency}}</div>
                         <div>Your projected savings:</div>
-                        <div class="col2-d2">$917,461</div>
+                        <div class="col2-d2">{{resultPerc.achieved|currency}}</div>
                         <div class="line-divider"></div>
-                        <div><i class="fa fa-exclamation-circle"></i>You still need to save:</div>
-                        <div style="display: none;"><i class="fa fa-exclamation-circle"></i>You have a surplus of:</div>
-                        <div class="col2-d3">$917,461</div>
+                        <div ng-show="!surplusOption"><i class="fa fa-exclamation-circle"></i>You still need to save:</div>
+                        <div ng-show="surplusOption"><i class="fa fa-exclamation-circle"></i>You have a surplus of:</div>
+                        <div class="col2-d3">{{resultPerc.diff|currency}}</div>
                     </div>
                     <div class="col3 col-xs-12 col-sm-4 col-md-4 col-lg-4" >
-                        <div class="col3-d1" style="display: none;"><strong>You’ve got some more saving to do.</strong>You will need to <strong>contribute more</strong> in order to reach your <strong>retirement savings goal.</strong></div>
-                        <div class="col3-d1"><strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings or work a little longer.</div>
-                        <div class="col3-d1" style="display: none;"><strong>Your savings are right on track!</strong> Looks like you’re on track to reach your retirement savings goal.</div>
+                        <div class="col3-d1" ng-show="!surplusOption && !mediumOption"><strong>You’ve got some more saving to do.</strong>You will need to <strong>contribute more</strong> in order to reach your <strong>retirement savings goal.</strong></div>
+                        <div class="col3-d1" ng-show="!surplusOption && mediumOption"><strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings or work a little longer.</div>
+                        <div class="col3-d1" ng-show="surplusOption"><strong>Your savings are right on track!</strong> Looks like you’re on track to reach your retirement savings goal.</div>
                         <div class="col3-d2"><strong>Speak with an advisor today</strong> to find out how your age and lifestyle can affect your savings plan.</div>
                     </div>
                 </div>
@@ -968,7 +968,7 @@
                     </div>
                     <div class="col-sm-9 col-xs-12 contents" >
                         <h2 class="hidden-xs heading">GENERAL ADVICE NOTICE:</h2>
-                        <p class="sub-para">If you choose one of the above portfolios then you are doing so under the general advice rules. We will open an account for you and manage the asset allocation for you based on your chosen portfolio. This will apply to your superannuation account as well as your savings without providing personal advice" If you want to enlist the services of an adviser that is able to construct a full financial plan for you then please click on the <strong>Your Feedback</strong> button on top of the page.</p>
+                        <p class="sub-para">If you choose to use our calculators then you are doing so under the general advice rules. This will apply to your superannuation account as well as your savings without providing personal advice" If you want to enlist the services of an adviser that is able to construct a full financial plan for you then please click on the <strong>Your Feedback</strong> button on top of the page.</p>
                     </div>                        
                 </div>
             </div>
@@ -1035,19 +1035,40 @@
                     <div class="modal-body">
                         <ol>
                             <li>
-                                Salary indicated here does not include superannuation guarantee contribution, fringe benefit or non-standard agreed employment benefit, and is the salary before any salary sacrifice.
+                                The Superannuation Guarantee (SG) contribution is at the rate of 9.5% of ordinary time earnings.
                             </li>
                             <li>
-                                SGC will gradually increase to 12.00% in the future
+                                The tax rate for taxable income of superannuation in accumulation phase is 15%, including on concessional contributions and income generated.
                             </li>
                             <li>
-                                It is assumed that the superannuation balance is boosted up by the net concessional contribution in the financial year.
+                                Members will convert the accumulation balance into pension at the nominated pension start age. All contributions will be converted into the pension at the beginning of the next financial year.
                             </li>
                             <li>
-                                This calculator takes into the consideration of both the personal tax and concessional contribution tax charged from the super.
+                                Salaries are indexed at the wage index level if there is any.
                             </li>
                             <li>
-                                Divison 293 tax reduces the tax benefit on low tax contributions (also referred to as concessional contributions) of very high income earners. It was legislated in June 2013 and backdated to July 2012.
+                                Member is able to select the base pension drawdown amount or just withdraw the minimum. If member nominates their own pension drawdown strategy, the annual drawdown will be indexed at CPI level.
+                            </li>
+                            <li>
+                                Investment earnings are uniformly distributed over the financial year.
+                            </li>
+                            <li>
+                                SG, pension drawdowns, fees and insurance premiums are received or paid in the middle of each financial year.
+                            </li>
+                            <li>
+                                Tax is paid at the end of each financial year.
+                            </li>
+                            <li>
+                                The age pension entitlements are calculated under the current new deeming rules, taking into consideration the income test and asset test. Note the calculation of age pension needs to be altered if the standard/criterial is updated by the Centrelink.
+                            </li>
+                            <li>
+                                The deeming rate is maintained at the current deeming rate according to the Centrelink website for the entirety of the projected period.
+                            </li>
+                            <li>
+                                There is no change in personal assets or circumstances.
+                            </li>
+                            <li>
+                                The age pension supplement is assumed to be at the maximum level if there is any.
                             </li>                            
                         </ol>
                     </div>
@@ -1099,7 +1120,7 @@
         <i class="fa fa-comments faa-tada animated" aria-hidden="true"></i>
         <label>Feedback</label>
     </div>
-    <div class="container print-container" style=" display: block; " >
+    <div class="container print-container" style=" display: none; " >
         <div print-remove class="row button-preview">
             <div class="col-xs-12">
                 <div class="button-row">
@@ -1220,7 +1241,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="content-row" style="display:none;">
+                        <div class="content-row" ng-show="spouseOption">
                             <div class="content-section">
                                 <h3><div class="fa fa-usd icon"></div>Your spouse's account details:</h3>
                                 <div class="display-table print-width-100">
@@ -1334,19 +1355,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="content-row calc-summary">
+                        <div class="content-row calc-summary" ng-show="!spouseOption">
                             <div class="content-section">
                                 <div class="display-table print-width-100">
                                     <div class="display-table-cell vertical-align-middle print-width-48">
-                                        <div class="goal-perc">0%</div>
+                                        <div class="goal-perc">{{resultPerc.perc}} %</div>
                                         <p class="goal-percLine">OF YOUR GOAL MET.</p>
-                                        <div class="goal-desc-shortfall" style="display: none;">
+                                        <div class="goal-desc-shortfall" ng-show="!surplusOption && !mediumOption">
                                             <strong>You’ve got some more saving to do.</strong>You will need to <strong>contribute more</strong> in order to reach your <strong>retirement savings goal.</strong>
                                         </div>
-                                        <div class="goal-desc-almost">
+                                        <div class="goal-desc-almost" ng-show="!surplusOption && mediumOption">
                                             <strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings or work a little longer.
                                         </div>
-                                        <div class="goal-desc-surplus" style="display: none;">
+                                        <div class="goal-desc-surplus" ng-show="surplusOption">
                                             <strong>Your savings are right on track!</strong> Looks like you’re on track to reach your retirement savings goal.
                                         </div>
                                     </div>
@@ -1356,23 +1377,23 @@
                                             Your retirement savings goal:
                                         </div>
                                         <div class="goal-lines goal-m-values">
-                                            <strong>$123</strong>
+                                            <strong>{{resultPerc.target|currency}}</strong>
                                         </div>
                                         <div class="goal-lines">
                                             Your projected savings:
                                         </div>
                                         <div class="goal-lines goal-values">
-                                            <strong>$123</strong>
+                                            <strong>{{resultPerc.achieved|currency}}</strong>
                                         </div>
                                         <div class="yellow-line"></div>
                                         <div class="goal-lines">
-                                            <div class="fa fa-exclamation-circle icon"></div>You still need to save:
+                                            <div ng-show="!surplusOption" class="fa fa-exclamation-circle icon"></div>You still need to save:
                                         </div>
-                                        <div class="goal-lines" style="display: none;">
+                                        <div class="goal-lines" ng-show="surplusOption">
                                             <div class="fa fa-exclamation-circle icon"></div>You have a surplus of:
                                         </div>
                                         <div class="goal-lines goal-values">
-                                            <strong>$123</strong>
+                                            <strong>{{resultPerc.diff|currency}}</strong>
                                         </div>   
                                     </div>
                                 </div>
@@ -1380,6 +1401,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
                 <div print-section class="row page-2">
                     <div class="page-head">
                         <img src="images/logo.png" width="180px" height="50px" alt="Financial Choice logo">
@@ -1387,19 +1409,19 @@
                         <div class="date">December 1, 2016</div>
                     </div>
                     <div class="page-content">
-                        <div class="content-row calc-summary" style="display:none;">
+                        <div class="content-row calc-summary" ng-show="spouseOption" style="margin-bottom: 20pt;">
                             <div class="content-section">
                                 <div class="display-table print-width-100">
                                     <div class="display-table-cell vertical-align-middle print-width-48">
-                                        <div class="goal-perc">0%</div>
+                                        <div class="goal-perc">{{resultPerc.perc}} %</div>
                                         <p class="goal-percLine">OF YOUR GOAL MET.</p>
-                                        <div class="goal-desc-shortfall" style="display: none;">
+                                        <div class="goal-desc-shortfall" ng-show="!surplusOption && !mediumOption">
                                             <strong>You’ve got some more saving to do.</strong>You will need to <strong>contribute more</strong> in order to reach your <strong>retirement savings goal.</strong>
                                         </div>
-                                        <div class="goal-desc-almost">
+                                        <div class="goal-desc-almost" ng-show="!surplusOption && mediumOption">
                                             <strong>You’re almost there!</strong> You will need to <strong>contribute a little more</strong> to your retirement savings or work a little longer.
                                         </div>
-                                        <div class="goal-desc-surplus" style="display: none;">
+                                        <div class="goal-desc-surplus" ng-show="surplusOption">
                                             <strong>Your savings are right on track!</strong> Looks like you’re on track to reach your retirement savings goal.
                                         </div>
                                     </div>
@@ -1409,23 +1431,23 @@
                                             Your retirement savings goal:
                                         </div>
                                         <div class="goal-lines goal-m-values">
-                                            <strong>$123</strong>
+                                            <strong>{{resultPerc.target|currency}}</strong>
                                         </div>
                                         <div class="goal-lines">
                                             Your projected savings:
                                         </div>
                                         <div class="goal-lines goal-values">
-                                            <strong>$123</strong>
+                                            <strong>{{resultPerc.achieved|currency}}</strong>
                                         </div>
                                         <div class="yellow-line"></div>
                                         <div class="goal-lines">
-                                            <div class="fa fa-exclamation-circle icon"></div>You still need to save:
+                                            <div ng-show="!surplusOption" class="fa fa-exclamation-circle icon"></div>You still need to save:
                                         </div>
-                                        <div class="goal-lines" style="display: none;">
+                                        <div class="goal-lines" ng-show="surplusOption">
                                             <div class="fa fa-exclamation-circle icon"></div>You have a surplus of:
                                         </div>
                                         <div class="goal-lines goal-values">
-                                            <strong>$123</strong>
+                                            <strong>{{resultPerc.diff|currency}}</strong>
                                         </div>   
                                     </div>
                                 </div>
@@ -1436,12 +1458,13 @@
                                 <h3><div class="fa fa-usd icon"></div>Comparison graph:</h3>
                                 <div class="display-table print-width-100">
                                     <img id="containerImage" src=""> 
-                                    <img id="containerImageA" src="">                                     
+                                    <img id="containerImageA" ng-show="!spouseOption" src="">                                     
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <br>
                 <div print-section class="row page-3">
                     <div class="page-head">
                         <img src="images/logo.png" width="180px" height="50px" alt="Financial Choice logo">
@@ -1449,7 +1472,7 @@
                         <div class="date">December 1, 2016</div>
                     </div>
                     <div class="page-content" >
-                        <div class="content-row" style="display: none;">
+                        <div class="content-row" ng-show="spouseOption" style="margin-bottom: 20pt;">
                             <div class="content-section">
                                 <h3><div class="fa fa-usd icon"></div>Comparison graph:</h3>
                                 <div class="display-table print-width-100">
@@ -1462,25 +1485,47 @@
                                 <h3><div class="fa fa-usd icon"></div>Tell us about yourself:</h3>
                                  <ol>
                                     <li>
-                                        Salary indicated here does not include superannuation guarantee contribution, fringe benefit or non-standard agreed employment benefit, and is the salary before any salary sacrifice.
+                                        The Superannuation Guarantee (SG) contribution is at the rate of 9.5% of ordinary time earnings.
                                     </li>
                                     <li>
-                                        SGC will gradually increase to 12.00% in the future
+                                        The tax rate for taxable income of superannuation in accumulation phase is 15%, including on concessional contributions and income generated.
                                     </li>
                                     <li>
-                                        It is assumed that the superannuation balance is boosted up by the net concessional contribution in the financial year.
+                                        Members will convert the accumulation balance into pension at the nominated pension start age. All contributions will be converted into the pension at the beginning of the next financial year.
                                     </li>
                                     <li>
-                                        This calculator takes into the consideration of both the personal tax and concessional contribution tax charged from the super.
+                                        Salaries are indexed at the wage index level if there is any.
                                     </li>
                                     <li>
-                                        Divison 293 tax reduces the tax benefit on low tax contributions (also referred to as concessional contributions) of very high income earners. It was legislated in June 2013 and backdated to July 2012.
-                                    </li>                            
+                                        Member is able to select the base pension drawdown amount or just withdraw the minimum. If member nominates their own pension drawdown strategy, the annual drawdown will be indexed at CPI level.
+                                    </li>
+                                    <li>
+                                        Investment earnings are uniformly distributed over the financial year.
+                                    </li>
+                                    <li>
+                                        SG, pension drawdowns, fees and insurance premiums are received or paid in the middle of each financial year.
+                                    </li>
+                                    <li>
+                                        Tax is paid at the end of each financial year.
+                                    </li>
+                                    <li>
+                                        The age pension entitlements are calculated under the current new deeming rules, taking into consideration the income test and asset test. Note the calculation of age pension needs to be altered if the standard/criterial is updated by the Centrelink.
+                                    </li>
+                                    <li>
+                                        The deeming rate is maintained at the current deeming rate according to the Centrelink website for the entirety of the projected period.
+                                    </li>
+                                    <li>
+                                        There is no change in personal assets or circumstances.
+                                    </li>
+                                    <li>
+                                        The age pension supplement is assumed to be at the maximum level if there is any.
+                                    </li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
+                <br>
             </div>
         </div>
     </div>

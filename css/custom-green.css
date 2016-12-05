@@ -610,7 +610,7 @@
 }
 
 .print-container .page-content .content-row {
-    margin-top: 50pt;
+    margin-top: 20pt;
     width: 100%;
 }
 
@@ -704,8 +704,8 @@
 #containerImageB {
     width: 350pt;
     height: 250pt;
-    padding-top: 20pt;
-    padding-bottom: 20pt;
+    margin: 60pt;
+    margin-bottom: 0pt;
 }
 
 .print-container ol {
@@ -715,16 +715,58 @@
 .print-container li {
     padding-left: 10pt;
     padding-bottom: 5pt;
+    font-size: 11pt;
+}
+
+.print-container .tell-lines,
+.print-container .account-lines,
+.print-container .accountSpouse-lines,
+.print-container .otherAssets-lines {
+    font-size: 11pt;
+}
+
+.print-container .tell-lines strong,
+.print-container .account-lines strong,
+.print-container .accountSpouse-lines strong,
+.print-container .otherAssets-lines strong {
+    font-size: 13pt;
 }
 
 @media print {
-    .print-container .page-1 .page-head,
     .print-container .page-2 .page-head,
     .print-container .page-3 .page-head {
-        margin-top: 60pt;
-        background-color: #e5e0e0;
+        margin-top: 30pt;
+        background-color: #e5e0e0 !important;
+        -webkit-print-color-adjust: exact;
     }
     .print-container .calc-summary {
-        background-color: #e0f9a2;
+        background-color: #e0f9a2 !important;
+        -webkit-print-color-adjust: exact;
+    }
+    #grey1 {
+        display: block;
+    }
+    .print-container .page-1 .page-head {
+        background-color: #e5e0e0 !important;
+        -webkit-print-color-adjust: exact;
+    }
+    .print-container .tell-lines strong,
+    .print-container .account-lines strong,
+    .print-container .accountSpouse-lines strong,
+    .print-container .otherAssets-lines strong {
+        font-weight: 500;
+        font-family: AgendaMedium;
+        font-size: 14pt;
+    }
+
+    .print-container .goal-perc,
+    .print-container .goal-desc-shortfall,
+    .print-container .goal-desc-almost,
+    .print-container .goal-desc-surplus,
+    .print-container .goal-lines,
+    .print-container .goal-goal-m-values,
+    .print-container .goal-goal-values{
+        font-weight:500;
     }
 }
+
