@@ -20,11 +20,16 @@
 <body print-section ng-cloak>
     <div class="container" style="display: block;" ng-controller="TTRController">
         <div class="row page-heading ">
+            <div class="col-xs-12 " style="background: #565656;">    
+                <img src="images/logo.png" class="img-responsive" alt="">               
+                <button data-toggle="modal" data-target="#myModal1" class=" feedback-menu" style="">Your Feedback</button> 
+            </div>
+        </div>
+        <div class="row page-heading ">
             <div class="col-xs-12 " style="background: radial-gradient(#8cc63e,#6d9b2e);">
                 <div class=" title-bar ">
                     Retirement Adequacy Calculator                    
                 </div>                
-                <button data-toggle="modal" data-target="#myModal1" class=" feedback-menu" style="">Your Feedback</button> 
             </div>
         </div>
         <div class="row page-content" id="inputs">
@@ -715,7 +720,7 @@
                     </div>
                     <div class="col-sm-9 col-xs-12 contents" >
                         <h2 class="hidden-xs heading">GENERAL ADVICE NOTICE:</h2>
-                        <p class="sub-para">If you choose one of the above portfolios then you are doing so under the general advice rules. We will open an account for you and manage the asset allocation for you based on your chosen portfolio. This will apply to your superannuation account as well as your savings without providing personal advice" If you want to enlist the services of an adviser that is able to construct a full financial plan for you then please click on the <strong>Your Feedback</strong> button on top of the page.</p>
+                        <p class="sub-para">If you choose to use our calculators then you are doing so under the general advice rules. This will apply to your superannuation account as well as your savings without providing personal advice" If you want to enlist the services of an adviser that is able to construct a full financial plan for you then please click on the <strong>Your Feedback</strong> button on top of the page.</p>
                     </div>                        
                 </div>
             </div>
@@ -727,7 +732,7 @@
                         <div class="save-button" id="download">
                             <a class="save"><span class="fa fa-file-pdf-o icon"><span class="sr-only">Save</span>&nbsp;</span>Save</a>
                         </div>
-                        <div class="print-button print-doc" style="display: none">
+                        <div class="print-button print-doc">
                             <a class="print js-btn-print"><span class="fa fa-print icon"><span class="sr-only">Print</span>&nbsp;</span>Print</a>
                         </div>
                     </div>
