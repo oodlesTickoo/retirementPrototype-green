@@ -19,6 +19,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         postalCode: 1234
     };
 
+    $scope.resultPerc={};
+
     var d = document.getElementsByClassName('title-div');
 
     $scope.chartOneOpen = true;
@@ -2758,6 +2760,37 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                 }
                 ChartServiceHc.createChart(totalSuperBalanceArray.slice(0, 5 + Math.ceil(leMember1)));
                 AreaChartService.createChart(member1APArray.slice(0, 5 + Math.ceil(leMember1)), [], member1PensionArray.slice(0, 5 + Math.ceil(leMember1)), [], leMember1, leMember2, false, targetIncome);
+
+                $scope.resultPerc.perc=0;
+                $scope.resultPerc.diff=0;
+                $scope.resultPerc.target=0;
+                $scope.resultPerc.achieved=0;
+
+                console.log("yoyo",object1);
+                console.log("yoyo",$scope.retirementAge);
+                console.log("yoyo",$scope.age);
+
+                for(i=Number($scope.retirementAge)-$scope.age; i<leMember1;i++){
+                    $scope.resultPerc.achieved=$scope.resultPerc.achieved+member1APArray[i]+member1PensionArray[i];
+                }
+                $scope.resultPerc.achieved=$scope.resultPerc.achieved.toFixed(0);
+
+                $scope.resultPerc.target= Number($scope.target.replaceAll('$', '').replaceAll(',', ''))*((leMember1+$scope.age)-Number($scope.retirementAge));
+
+
+                if($scope.resultPerc.achieved>$scope.resultPerc.target){                    
+                    $scope.resultPerc.diff=$scope.resultPerc.achieved-$scope.resultPerc.target;
+                    $scope.resultPerc.perc=100;
+                    $scope.surplusOption=true;
+                }else{
+                     $scope.resultPerc.diff=$scope.resultPerc.target-$scope.resultPerc.achieved;
+                     $scope.resultPerc.perc=100-(($scope.resultPerc.diff/$scope.resultPerc.target)*100);
+                     $scope.resultPerc.perc=$scope.resultPerc.perc.toFixed(0);
+                     $scope.surplusOption=false;
+                }
+
+                $scope.mediumOption= $scope.resultPerc.perc>75?true:false;
+                $timeout(0);
 
                 var canvas = document.createElement("canvas");
 
