@@ -91,7 +91,7 @@ body {
 }
 
 .general-details .icon-container i,
-.general-details-results .icon-container i{
+.general-details-results .icon-container i {
     background-color: #61746b;
 }
 
@@ -116,9 +116,9 @@ body {
     margin-top: 20px;
     font-family: AgendaMedium;
     background: #6d9b2e;
-    background: -webkit-linear-gradient(0deg,#6d9b2e 0%,#8cc63e 100%);
-    background: -webkit-linear-gradient(0deg,#6d9b2e 0%,#8cc63e 100%);
-    background: linear-gradient(0deg,#6d9b2e 0%,#8cc63e 100%);
+    background: -webkit-linear-gradient(0deg, #6d9b2e 0%, #8cc63e 100%);
+    background: -webkit-linear-gradient(0deg, #6d9b2e 0%, #8cc63e 100%);
+    background: linear-gradient(0deg, #6d9b2e 0%, #8cc63e 100%);
 }
 
 .result-details .chart-button {
@@ -137,9 +137,9 @@ body {
 .page-content .ttrForm .submit-button:hover {
     text-decoration: none;
     background: #6d9b2e;
-    background: -webkit-linear-gradient(0deg,#8cc63e 0%,#6d9b2e 100%);
-    background: -webkit-linear-gradient(0deg,#8cc63e 0%,#6d9b2e 100%);
-    background: linear-gradient(0deg,#8cc63e 0%,#6d9b2e 100%);
+    background: -webkit-linear-gradient(0deg, #8cc63e 0%, #6d9b2e 100%);
+    background: -webkit-linear-gradient(0deg, #8cc63e 0%, #6d9b2e 100%);
+    background: linear-gradient(0deg, #8cc63e 0%, #6d9b2e 100%);
 }
 
 .page-content .account-details input,
@@ -206,7 +206,7 @@ body {
 }
 
 .ttrForm .noUi-target {
-    /*border-radius:0px;	*/
+    /*border-radius:0px;    */
 }
 
 .ttrForm .bootstrap-select .btn-default:hover,
@@ -252,18 +252,18 @@ body {
         padding-left: 10px;
     }
     .small-buttons button {
-        background: #e5ab00 !important;
-        background: -webkit-linear-gradient(270deg, #e5ab00 0%, #f6ce39 100%) !important;
-        background: -webkit-linear-gradient(bottom, #e5ab00 0%, #f6ce39 100%) !important;
-        background: linear-gradient(0deg, #e5ab00 0%, #f6ce39 100%) !important;
+        background: #a2dd3b !important;
+        background: linear-gradient(0deg, #a2dd3b 0%, #a2dd3b 100%);
+        color: #424242;
     }
     .small-buttons {
         padding-left: 60px;
     }
     #bar-chart-m[disabled],
     #area-chart-m[disabled] {
-        background: #003946 !important;
-        opacity: 1;
+        background: #003946! important;
+        opacity: 1 !important;
+        color: white;
     }
     .result-content .value-container label {
         font-size: 18px;
@@ -298,8 +298,20 @@ body {
     .account-details>div:nth-child(1) p,
     .spouse-account-details>div:nth-child(1) p,
     .other-assets>div:nth-child(2)>h2,
-    .other-assets>div:nth-child(1) p {
+    .other-assets>div:nth-child(1) p,
+    .result-details>div>div:nth-child(1)>div:nth-child(2)>h2,
+    .result-details>div>div:nth-child(1)>div:nth-child(1) p,
+    .general-details-results>div:nth-child(2)>h2,
+    .general-details-results>div:nth-child(1) p,
+    .general-details>div:nth-child(2)>h2,
+    .general-details>div:nth-child(1) p {
         font-size: 15px;
+    }
+    .sub-para {
+        font-size: 15px;
+    }
+    .title-bar {
+        font-size: 26px;
     }
 }
 
@@ -614,9 +626,7 @@ body {
     text-decoration: underline;
 }
 
-
-#myModal2 li{
-	padding-bottom: 10px;
+#myModal2 li {
+    padding-bottom: 10px;
     font-size: 15px;
-
 }
