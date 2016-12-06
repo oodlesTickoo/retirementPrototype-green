@@ -754,19 +754,19 @@
     .print-container .account-lines strong,
     .print-container .accountSpouse-lines strong,
     .print-container .otherAssets-lines strong {
-        font-weight: 500;
-        font-family: AgendaMedium;
-        font-size: 14pt;
+        font-weight: 500!important;
+        font-size: 14pt!important;
     }
 
-    .print-container .goal-perc,
-    .print-container .goal-desc-shortfall,
-    .print-container .goal-desc-almost,
-    .print-container .goal-desc-surplus,
+    .print-container .goal-perc strong,
+    .print-container .goal-desc-shortfall strong,
+    .print-container .goal-desc-almost strong,
+    .print-container .goal-desc-surplus strong,
+    .print-container .goal-lines strong,
     .print-container .goal-lines,
-    .print-container .goal-goal-m-values,
-    .print-container .goal-goal-values{
-        font-weight:500;
+    .print-container .goal-goal-m-values strong,
+    .print-container .goal-goal-values strong{
+        font-weight:500!important;
     }
 }
 
