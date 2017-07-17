@@ -100,14 +100,14 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
 
     var initDate = new Date();
-    initDate.setYear(1959);
-    initDate.setMonth(6);
-    initDate.setDate(3);
+    initDate.setYear(1988);
+    initDate.setMonth(0);
+    initDate.setDate(1);
 
     var initDate2 = new Date();
-    initDate2.setYear(1965);
-    initDate2.setMonth(6);
-    initDate2.setDate(4);
+    initDate2.setYear(1984);
+    initDate2.setMonth(0);
+    initDate2.setDate(1);
 
     $scope.dob = initDate;
     $scope.dobSpouse = initDate2;
@@ -310,33 +310,33 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.preservationAge = 55;
     $scope.preservationAgeSpouse = 55;
 
-    $scope.annualSalary = 260000;
-    $scope.annualSalaryNew = 260000;
+    $scope.annualSalary = 90000;
+    $scope.annualSalaryNew = 90000;
 
 
     $scope.employerContributionLevel = 9.50;
     $scope.employerContributionLevelSpouse = 9.50;
 
-    $scope.inflation = 3.50;
+    $scope.inflation = 3;
     $scope.inflationSpouse = 3.50;
 
-    $scope.superBalance = 500000;
-    $scope.superBalanceNew = 500000;
+    $scope.superBalance = 35000;
+    $scope.superBalanceNew = 35000;
 
-    $scope.wageIncrease = 4.00;
+    $scope.wageIncrease = 1;
     $scope.wageIncreaseSpouse = 4.00;
 
     $scope.insurancePremium = 0;
 
-    $scope.salarySacrifice = 20000;
+    $scope.salarySacrifice = 0;
 
-    $scope.pensionStart = 57;
+    $scope.pensionStart = 65;
 
     $scope.investmentReturn = 5.30;
 
-    $scope.variableFee = 1.11;
+    $scope.variableFee = 0.75;
 
-    $scope.fixedFee = 300;
+    $scope.fixedFee = 0;
 
     $scope.homeContents = 50000;
     $scope.vehicleCost = 0;

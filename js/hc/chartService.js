@@ -7,7 +7,7 @@ app.service('ChartServiceHc', function() {
             lang: {
                 thousandsSep: ','
             },
-            colors: ["#003946","#434348","#90ed7d","#FFBC75"]
+            colors: ["#003946", "#434348", "#90ed7d", "#FFBC75"]
         });
 
         //console.log(balanceArray.length);
@@ -73,8 +73,8 @@ app.service('ChartServiceHc', function() {
                     }
                 },
                 labels: {
-                step: 5
-            }
+                    step: 5
+                }
             },
             yAxis: {
                 title: {
@@ -87,7 +87,15 @@ app.service('ChartServiceHc', function() {
             },
             plotOptions: {
                 series: {
-                    borderWidth: 0,
+                    shadow: true,
+                    fillOpacity: 0.5,
+                    borderWidth: 0
+                },
+                candlestick: {
+                    lineColor: '#404048'
+                },
+                map: {
+                    shadow: false
                 }
             },
             tooltip: {
